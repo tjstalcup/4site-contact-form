@@ -120,12 +120,6 @@ function renderConfirmation() {
     "Keep an eye on your inbox to learn more about ways you can create a better world.";
 
   document.querySelector(".contact_form_4site form").replaceWith(p);
-
-  //   $(".contact_form_4site").html(`
-  //     <a href="#">x</a>
-  //       <h2>you're signed up.</h2>
-  //       <p>Keep an eye on your inbox to learn more about ways you can create a better world.</p>
-  //   `);
 }
 
 function subscribeClick() {
