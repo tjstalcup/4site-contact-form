@@ -129,7 +129,7 @@ function subscribeClick() {
 
 function formSubmit(e) {
   e.preventDefault();
-  var formdata = new FormData();
+  let formdata = new FormData();
   formdata.append("first_name", e.target.first.value);
   formdata.append("last_name", e.target.last.value);
   formdata.append("email", e.target.email.value);
