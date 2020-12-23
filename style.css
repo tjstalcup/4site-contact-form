@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+.contact_form_4site {
+  font-family: sans-serif;
+  background-color: #23b272;
+  color: white;
+  padding: 40px 40px 20px;
+  position: fixed;
+  width: 300px;
+  bottom: 0;
+  right: 0;
+}
+
+.contact_form_4site a {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+}
+
+.contact_form_4site h2 {
+  margin-top: 0px;
+}
+
+.contact_form_4site button,
+button {
+  border: 0px;
+  color: white;
+  background-color: #ff9d0a;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 10px 45px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.contact_form_4site input,
+.contact_form_4site select {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 7px 0;
+  border-radius: 7px;
+  text-transform: uppercase;
+  background-color: rgb(242, 242, 242);
+  border: 0px;
+  color: rgb(63, 61, 63);
+}
+
+.contact_form_4site .error {
+  color: #ffd700;
+}
