@@ -1,9 +1,9 @@
 * {
   box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .contact_form_4site {
-  font-family: sans-serif;
   background-color: #23b272;
   color: white;
   padding: 40px 40px 20px;
