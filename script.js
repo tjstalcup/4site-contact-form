@@ -20,7 +20,7 @@ function detect4SiteForm() {
     box.appendChild(close);
 
     document.querySelector("body").appendChild(box);
-
+    
     renderBox();
   }
 }
@@ -51,6 +51,7 @@ function renderStepOne() {
   button.innerText = "subscribe";
   button.addEventListener("click", subscribeClick);
   document.querySelector(".contact_form_4site").appendChild(button);
+  setTimeout(()=>{document.querySelector(".contact_form_4site").style.bottom = "0"},100);
 }
 
 function renderStepTwo() {
@@ -193,7 +194,10 @@ function apiError(message) {
 function closeBox(e) {
   e.preventDefault();
   document.cookie = "4sitecontactform=finished";
-  document.querySelector(".contact_form_4site").remove();
+  document.querySelector(".contact_form_4site").style.bottom = "-500px";
+  setTimeout(() => {
+    document.querySelector(".contact_form_4site").remove();
+  }, 1000);
 }
 
 function reOpenForm() {

@@ -9,8 +9,9 @@
   padding: 40px 40px 20px;
   position: fixed;
   width: 300px;
-  bottom: 0;
+  bottom: -500px;
   right: 0;
+  transition: bottom 1s;
 }
 
 .contact_form_4site a {
