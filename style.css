@@ -54,3 +54,7 @@ button {
 .contact_form_4site .error {
   color: #ffd700;
 }
+.contact_form_4site .loading {
+  margin-top: 20px;
+  width: 100%;
+}

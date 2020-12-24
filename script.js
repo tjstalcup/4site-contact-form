@@ -129,29 +129,65 @@ function subscribeClick() {
 
 function formSubmit(e) {
   e.preventDefault();
+
+  let error = document.querySelector(".contact_form_4site .error");
+  if (error) {
+    error.remove();
+  }
+
+  let loading = document.createElement("img");
+  loading.src = "loading.gif";
+  loading.classList.add("loading");
+
+  document
+    .querySelector(".contact_form_4site form button")
+    .replaceWith(loading);
+
   let formdata = new FormData();
   formdata.append("first_name", e.target.first.value);
   formdata.append("last_name", e.target.last.value);
   formdata.append("email", e.target.email.value);
   formdata.append("country", e.target.country.value);
 
-  fetch("https://apps.4sitestudios.com/fernando/tj/api.php", {
-    method: "POST",
-    body: formdata,
-    redirect: "follow",
-  }).then((res) => {
-    if (!res.ok) {
-      let error = document.createElement("p");
-      error.classList.add("error");
-      error.innerText =
-        "There was a problem submitting, please correct and try again";
-      document.querySelector(".contact_form_4site form").appendChild(error);
-    } else {
-      document.cookie = "4sitecontactform=finished";
-      store4SiteForm.step = 3;
-      renderBox();
-    }
-  });
+  setTimeout(() => {
+    fetch("https://apps.4sitestudios.com/fernando/tj/api.php", {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    })
+      .then((res) => {
+        if (!res.ok) {
+          apiError(
+            "There was a problem submitting, please correct and try again"
+          );
+        } else {
+          return res.json();
+        }
+      })
+      .then((res) => {
+        if (res.result === "error") {
+          apiError(res.message);
+        } else {
+          document.cookie = "4sitecontactform=finished";
+          store4SiteForm.step = 3;
+          renderBox();
+        }
+      });
+  }, 1000);
+}
+
+function apiError(message) {
+  document.querySelector(".contact_form_4site form .loading").remove();
+
+  let error = document.createElement("p");
+  error.classList.add("error");
+  error.innerText = message;
+  document.querySelector(".contact_form_4site form").appendChild(error);
+
+  let submit = document.createElement("button");
+  submit.type = "submit";
+  submit.innerText = "subscribe";
+  document.querySelector(".contact_form_4site form").appendChild(submit);
 }
 
 function closeBox(e) {
